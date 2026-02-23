@@ -1,0 +1,240 @@
+/*!
+ * Tailwind CSS directives - This file is processed by Tailwind CSS during build
+ * @tailwind and @apply directives are intentionally used and valid
+ * csslint ignore:start
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* stylelint-enable */
+
+:root {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+
+  --card: 222 47% 13%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 262 83% 58%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 199 89% 48%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217 33% 20%;
+  --input: 217 33% 20%;
+  --ring: 262 83% 58%;
+
+  --radius: 0.75rem;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+@layer base {
+  /* stylelint-disable */
+  * {
+    @apply border-border;
+  }
+  /* stylelint-enable */
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* stylelint-disable */
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    animation: fadeIn 1s ease-out forwards;
+  }
+  /* stylelint-enable */
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* stylelint-disable */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    font-family: var(--font-display);
+  }
+  /* stylelint-enable */
+}
+
+@layer utilities {
+  /* stylelint-disable */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-accent;
+  }
+  /* stylelint-enable */
+  
+  /* stylelint-disable */
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+  /* stylelint-enable */
+
+  /* stylelint-disable */
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-foreground transition-colors duration-200;
+  }
+  /* stylelint-enable */
+
+  /* stylelint-disable */
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-200;
+  }
+  /* stylelint-enable */
+
+  /* stylelint-disable */
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  /* stylelint-enable */
+  
+  /* Modern, professional badge-style logo with chart icon */
+  .logo-badge {
+    width: 36px; /* Mobile size */
+    height: 36px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 1.5px solid #4da3ff;
+    border-radius: 8px; /* Rounded square */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .chart-icon {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+  }
+  
+  .chart-icon svg {
+    width: 12px;
+    height: 12px;
+    color: #4da3ff; /* Soft blue */
+  }
+  
+  .logo-text {
+    font-family: 'Inter', 'Poppins', 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 16px; /* Mobile text size */
+    letter-spacing: 1px;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .logo-badge:hover {
+    background: linear-gradient(135deg, #1e293b, #334155);
+    transform: scale(1.03);
+  }
+  
+  .full-name {
+    color: #e2e8f0;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+  
+  @media (min-width: 768px) { /* Tablet */
+    .logo-badge {
+      width: 42px;
+      height: 42px;
+    }
+    
+    .logo-text {
+      font-size: 18px;
+    }
+    
+    .full-name {
+      font-size: 18px;
+    }
+  }
+  
+  @media (min-width: 1024px) { /* Desktop */
+    .logo-badge {
+      width: 52px; /* Desktop size */
+      height: 52px;
+    }
+    
+    .logo-text {
+      font-size: 20px;
+    }
+    
+    .full-name {
+      font-size: 20px;
+    }
+  }
+  
+  /* Social icons container */
+  .social-icons-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Consistent spacing */
+  }
+  
+  /* LinkedIn icon styling */
+  .linkedin-icon,
+  .github-icon {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .linkedin-icon:hover .underline-animation,
+  .github-icon:hover .underline-animation {
+    transform: scale(1);
+  }
+  
+  /* Resume button in navbar */
+  .resume-nav-button {
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.2),
+                0 0 15px rgba(59, 130, 246, 0.15);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+  }
+  
+  .resume-nav-button:hover {
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.3),
+                0 0 20px rgba(59, 130, 246, 0.2);
+  }
+  
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.15);
+    pointer-events: none;
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .particle:nth-child(2n) {
+    background: rgba(56, 189, 248, 0.15);
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(20px, 20px);
+    }
+  }
+}
