@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from 'child_process';
-import { existsSync, mkdirSync, copyFileSync } from 'fs';
+import { existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 
 console.log('Building static portfolio...');
@@ -13,7 +13,10 @@ try {
     mkdirSync(distDir, { recursive: true });
   }
 
-  // Run Vite build
+  // Run TypeScript check and Vite build
+  console.log('Running TypeScript check...');
+  execSync('npx tsc', { stdio: 'inherit' });
+  
   console.log('Running vite build...');
   execSync('npx vite build', { stdio: 'inherit' });
 
