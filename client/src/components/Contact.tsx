@@ -22,7 +22,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Email Me</h4>
-                    <a href="https://mail.google.com/mail/?view=cm&to=sairubeshkannaravi@gmail.com" target="_blank">
+                    <a href="https://mail.google.com/mail/?view=cm&to=sairubeshkannaravi@gmail.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                       sairubeshkannaravi@gmail.com
                     </a>
                   </div>
@@ -45,7 +45,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Phone</h4>
-                    <a href="tel:+91-9876543210" className="text-muted-foreground hover:text-primary transition-colors">
+                    <a href="tel:+91-6374831608" className="text-muted-foreground hover:text-primary transition-colors">
                       +91-6374831608
                     </a>
                   </div>
